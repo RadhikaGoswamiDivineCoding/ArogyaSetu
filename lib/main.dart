@@ -15,6 +15,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           elevation: 1.0,
@@ -138,10 +139,11 @@ class _MyAppState extends State<MyApp> {
                               padding: const EdgeInsets.all(2.0),
                               child: Container(
                                 child: Center(
-                                    child: Text(
-                                  '👩🏻‍',
-                                  style: TextStyle(fontSize: 30.0),
-                                )),
+                                  child: Text(
+                                    '👩🏻‍',
+                                    style: TextStyle(fontSize: 30.0),
+                                  ),
+                                ),
                                 decoration: kInnerDecoration,
                               ),
                             ),
@@ -172,43 +174,43 @@ class _MyAppState extends State<MyApp> {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 40.0),
-                child: Text('We Recommends:', style: kHeadingStyle),
+                child: Text('We Recommend:', style: kHeadingStyle),
               ),
               SizedBox(
                 height: 20.0,
               ),
-              covidTips(
+              _CovidTips(
                 image: 'images/img1.jpg',
-                title: 'practise social distance',
+                title: 'Practise social distance',
               ),
-              covidTips(
+              _CovidTips(
                 image: 'images/img2.jpg',
-                title: 'practise social distance',
+                title: 'Practise social distancing',
               ),
-              covidTips(
+              _CovidTips(
                 image: 'images/img3.jpg',
-                title: 'practise social distance',
+                title: 'Practise social distance',
               ),
               SizedBox(
                 height: 10.0,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 40.0),
-                child: Text('HOw to maintain social distance:',
+                padding: const EdgeInsets.only(left: 40.0, top: 20),
+                child: Text('How to maintain social distance:',
                     style: kHeadingStyle),
               ),
               SizedBox(
                 height: 10.0,
               ),
-              socialtips(
+              _Socialtips(
                 title: 'practise social distance',
                 image: 'images/img4.jpg',
               ),
-              covidTips(
+              _CovidTips(
                 image: 'images/img5.jpg',
                 title: 'practise social distance',
               ),
-              socialtips(
+              _Socialtips(
                 title: 'practise social distance',
                 image: 'images/img6.jpg',
               ),
@@ -228,16 +230,25 @@ class _MyAppState extends State<MyApp> {
                       Image.asset(
                         'images/img7.jpg',
                       ),
+                      SizedBox(
+                        height: 20,
+                      ),
                       Text('COVID-19 Do\'s & Don\'ts', style: kHeadingStyle),
                       SizedBox(
-                        height: 20.0,
+                        height: 10.0,
                       ),
                       Image.asset('images/img7.jpg'),
+                      SizedBox(
+                        height: 20,
+                      ),
                       Text('Learn more about COVID-19', style: kHeadingStyle),
                       SizedBox(
-                        height: 20.0,
+                        height: 10.0,
                       ),
                       Image.asset('images/img8.jpg'),
+                      SizedBox(
+                        height: 20,
+                      ),
                       Text('Safe measeure against COVID-19',
                           style: kHeadingStyle),
                     ],
@@ -254,7 +265,6 @@ class _MyAppState extends State<MyApp> {
           child: Container(
             height: 100.0,
             width: double.infinity,
-
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -262,43 +272,64 @@ class _MyAppState extends State<MyApp> {
                 ),
               ],
             ),
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 RaisedButton(
-                  onPressed: (){},
+                  onPressed: () {},
                   color: Colors.white,
-                  shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0),
-                      side: BorderSide(color: Colors.deepPurpleAccent)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(30.0),
+                    side: BorderSide(
+                      color: Colors.deepPurpleAccent,
+                    ),
+                  ),
                   child: Row(
                     children: <Widget>[
                       IconButton(
-                        icon: Icon(Icons.share,color: Colors.deepPurpleAccent,),
+                        icon: Icon(
+                          Icons.share,
+                          color: Colors.deepPurpleAccent,
+                        ),
                         iconSize: 25.0,
                         onPressed: () {},
                       ),
-                      Text('Share app', style: TextStyle(color: Colors.deepPurpleAccent),),
+                      Text(
+                        'Share app',
+                        style: TextStyle(color: Colors.deepPurpleAccent),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      )
                     ],
                   ),
                 ),
                 RaisedButton(
-                  onPressed: (){},
+                  onPressed: () {},
                   color: Colors.deepPurpleAccent,
-                  shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0),
-                      ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(30.0),
+                  ),
                   child: Row(
                     children: <Widget>[
                       IconButton(
-                        icon: FaIcon(FontAwesomeIcons.stethoscope,color: Colors.white,),
+                        icon: FaIcon(
+                          FontAwesomeIcons.stethoscope,
+                          color: Colors.white,
+                        ),
                         iconSize: 20.0,
                         onPressed: () {},
                       ),
-                      Text('Assess Again', style: TextStyle(color: Colors.white),),
-
-
+                      Text(
+                        'Assess Again',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      )
                     ],
                   ),
                 ),
-
               ],
             ),
           ),
@@ -308,8 +339,8 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-class covidTips extends StatelessWidget {
-  covidTips({this.image, this.title});
+class _CovidTips extends StatelessWidget {
+  _CovidTips({this.image, this.title});
   final String image;
   final String title;
 
@@ -346,9 +377,10 @@ class covidTips extends StatelessWidget {
                       child: Text(
                         title,
                         style: TextStyle(
-                            fontSize: 20.0,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600),
+                          fontSize: 20.0,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                   ),
@@ -362,8 +394,8 @@ class covidTips extends StatelessWidget {
   }
 }
 
-class socialtips extends StatelessWidget {
-  socialtips({this.image, this.title});
+class _Socialtips extends StatelessWidget {
+  _Socialtips({this.image, this.title});
   final String image;
   final String title;
 
