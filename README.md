@@ -1,4 +1,4 @@
-# rosetu
+# Aarogya Setu
 
 A new Flutter application.
 
