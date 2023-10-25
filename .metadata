@@ -5,6 +5,6 @@
 
 version:
   revision: 2a7bc389f28d83c581f7ddd4601588a22e12512e
-  channel: beta
+  channel: beta gama
 
 project_type: app
